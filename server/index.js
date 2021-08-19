@@ -22,16 +22,15 @@ io.on('connection', socket =>{
   const hora = new Date().toString().slice(15, 21)
   
   socket.on('conectado', (userName) => {
-    console.log( userName, " conectado")
-    io.emit('mensajes', {servidor: "servidor", message: `${userName} ha entrado a la sala`, hora})
+    io.emit('mensajes', {servidor: "servidor", message: `${userName} ha entrado a la sala`, hora, userRole: "servidor"})
   })
 
   socket.on('mensaje', (userName, message, userRole, hora) => {
     io.emit('mensajes', {userName, message, userRole, hora})
   })
 
-  socket.on('desconectado', () => {
-    io.emit('mensajes', {servidor: "servidor", message: "ha bandonado la sala", hora})
+  socket.on('desconectado', (userName) => {
+    io.emit('mensajes', {servidor: "servidor", message: `${userName} ha bandonado la sala`, hora, userRole: "servidor"})
   })
 })
 

@@ -1,0 +1,8 @@
+@media screen and (max-width: 599px) {
+    #video{
+        height: 40vh;
+    }
+    #chat{
+        height: 40vh;
+    }    
+}
