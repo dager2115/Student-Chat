@@ -9,7 +9,7 @@ import { useStylesModal } from './styles/styles';
 
 
 
-export default function TransitionsModal( { messages } ) {
+export default function TransitionsModal({ messages }) {
   const classes = useStylesModal();
   const [open, setOpen] = React.useState(false);
 
@@ -25,7 +25,7 @@ export default function TransitionsModal( { messages } ) {
   return (
     <div>
       <IconButton size="small" onClick={handleOpen}>
-         <ListIcon/>
+        <ListIcon />
       </IconButton>
       <Modal
         aria-labelledby="transition-modal-title"
@@ -41,32 +41,40 @@ export default function TransitionsModal( { messages } ) {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-          <Container main>
-                <Table>
-                    <TableHead>
-                        <TableRow>
-                            <TableCell colSpan={2}>
-                                <Typography>
-                                    Lista de mensajes
-                                </Typography>
-                            </TableCell>
-                        </TableRow>
-                        <TableRow>
-                            <TableCell>mensaje</TableCell>
-                            <TableCell>fecha</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {messages && messages.map((message, i) => {
-                            return (
-                            <TableRow key={i}>
-                                <TableCell>{message.message}</TableCell>
-                                <TableCell>{message.createdAt.slice(0,10)} {message.createdAt.slice(11,16)}</TableCell>
-                            </TableRow>
-                            )
-                        })}
-                    </TableBody>
-                </Table>
+            <Container main>
+              <Table>
+                <TableHead>
+                  <TableRow>
+                    <TableCell colSpan={2}>
+                      <Typography>
+                        Lista de mensajes
+                      </Typography>
+                    </TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>mensaje</TableCell>
+                    <TableCell>fecha</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {messages && messages.sort(function (a, b) {
+                    if (a.createdAt < b.createdAt) {
+                      return 1;
+                    }
+                    if (a.createdAt > b.createdAt) {
+                      return -1;
+                    }
+                    return 0;
+                  }).map((message, i) => {
+                    return (
+                      <TableRow key={i}>
+                        <TableCell>{message.message}</TableCell>
+                        <TableCell>{message.createdAt.slice(0, 10)} {message.createdAt.slice(11, 16)}</TableCell>
+                      </TableRow>
+                    )
+                  })}
+                </TableBody>
+              </Table>
             </Container>
           </div>
         </Fade>

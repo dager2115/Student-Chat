@@ -30,6 +30,7 @@ export const useStylesModal = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+
     },
     paper: {
       backgroundColor: theme.palette.background.paper,
@@ -37,5 +38,7 @@ export const useStylesModal = makeStyles((theme) => ({
       borderRadius: "5px",
       boxShadow: theme.shadows[5],
       padding: theme.spacing(2, 4, 3),
+      maxHeight: "60vh",
+      overflow: "scroll"
     },
   }));
