@@ -15,5 +15,34 @@ export const useStyles = makeStyles(theme =>
         fontFamily:"Tahoma",
         fontWeight: "bold"
       },
+      user:{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end"
+      },
+      navigation:{
+        display: "flex",
+        alignItems:"center",
+        justifyContent:"space-evenly",
+      },
+      toolContainer:{
+        display: "flex",
+        width: "100%",
+        justifyContent: "space-between"
+      },
+      titleContainer:{
+        display: "flex",
+        alignItems: "center"
+      },
+      link:{
+        textDecoration: "none",
+        color: "#fff",
+        fontSize:"1.5rem"
+      },
+      avatar:{
+        color: theme.palette.primary.main,
+        background: "#fff",
+        marginRight: "10px"
+      }
     }),
   );

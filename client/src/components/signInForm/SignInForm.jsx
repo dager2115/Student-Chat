@@ -1,6 +1,6 @@
 import { Button, Container, TextField, Typography } from '@material-ui/core';
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createUser } from '../../redux/userReducer/userActions';
 import { useStyles } from './styles/styles';
 
@@ -35,8 +35,6 @@ export default function LogIn() {
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
     const classes = useStyles();
-    const message = useSelector(store => store.userReducer.message)
-    const error = useSelector(store => store.userReducer.error)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -58,13 +56,12 @@ export default function LogIn() {
     };
     
       const handleChange = (event) => {
-        setErrors(validate({...userData,
-          [event.target.name]: event.target.value
-        }))
-      
         setUserData({...userData,
           [event.target.name]: event.target.value
         });
+        setErrors(validate({...userData,
+          [event.target.name]: event.target.value
+        })) 
       };
 
 
@@ -72,7 +69,7 @@ export default function LogIn() {
         <Container component="main" maxWidth="xs">
         <div className={classes.paper}>
           <Typography component="h1" variant="h5">
-            Iniciar sesión
+            Regístrate
           </Typography>
           <form className={classes.form} onSubmit={handleSubmit}>
               <TextField
@@ -95,7 +92,6 @@ export default function LogIn() {
               id="userName"
               label="Nombre de ususario"
               name="userName"
-              autoFocus
               error={!!errors.userName}
               value={userData.userName}
               helperText={errors.userName}

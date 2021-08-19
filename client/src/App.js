@@ -5,6 +5,7 @@ import ClassChat from './components/streamAndChat/classChat';
 import LogIn from './components/login/logIn'
 import { CssBaseline } from '@material-ui/core';
 import SignInForm from './components/signInForm/SignInForm';
+import ChatHistory from './components/chatHistory/ChatHistory';
 
 var theme = createTheme({
   palette: {
@@ -35,10 +36,11 @@ function App() {
       <CssBaseline/>
       <Header/>
       <Switch>
-      <Route exact path="/" component={LogIn}/>
-      <Route path='/home' component={ClassChat}/>
       <Route path='/signIn' component={SignInForm}/>
+      <Route exact path="/" component={LogIn}/>
       {!user&&<Redirect to='/'/>}
+      <Route path='/home' component={ClassChat}/>
+      <Route path='/chatHistory' component={ChatHistory}/>
       </Switch>
     </ThemeProvider>
     </BrowserRouter>

@@ -1,16 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const { User } = require('../sqlDB')
+const { User, Message } = require('../sqlDB')
 
 // List all users
 router.get('/', async (req, res)=>{
-  await User.findAll()
+  await User.findAll({
+    include:[{
+      model: Message
+    }]
+  })
   .then(response => {
     res.send(response)
   })
   .catch(error => {
     res.send(error)
   })
+})
+
+router.get('/getOneUser/:param/:keyword', async (req, res) => {
+  const { keyword, param } = req.params
+  const user = await User.findAll({where:{ [param]:keyword}, include: [{model: Message}]})
+  if(user.length){
+    res.send({user})
+  }else{
+    res.status(404).send({message:"el usuario no existe"})
+  }
 })
 
 router.post('/create', async(req, res) => {
