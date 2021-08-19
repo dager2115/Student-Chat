@@ -1,17 +1,27 @@
 # Student-Chat
 Esta es una aplicacion en donde se simula el sreaming de una clase cualquiera en donde los participantes tienen la posivilidad de utilizar un chat para poder comunicarse, para ello debem loguearse con su nombre de usuario y contraseña y directamente entraran a la clase.
 
-Ademas de esto tendra una tabla para los moderadores en donde podra ver una lista de todos los usuarios existentes y de los mensajes que haya enviado cada uno, ademas de una manera de listar dichos mensajes  
+Tambien se cuenta con la posibilidad de crear una cuenta nueva pero esta se creara siempre con un rol de estudiante para usar la de moderador tendras que ingresar con la especificada mas adelante.
+
+Ademas de esto tendra una tabla para los moderadores en donde podra ver una lista de todos los usuarios existentes y de los mensajes que haya enviado cada uno, ademas de una manera de enlistar dichos mensajes.  
 
 # `npm insatll y start`
 
-Para poder utilizar esta aplicacion debes correr el comando npm install tanto en la carpeta server como en la de client y  luego npm start tambien en ambos, ellos se correran en puertos diferentes que tendras que colocar en tus variables de entorno
+Para poder utilizar esta aplicacion debes correr el comando npm install tanto en la carpeta server como en la de client y  luego npm start tambien en ambas, ellos se correran en puertos diferentes que tendras que colocar en tus variables de entorno
 
 # `database`
 
 para poder utilizar el servidor deberas crear una base de datos en postgres, no importa el nombre y luego colocar en tus variables de entorno las credenciales para poder acceder a la base de datos.
 
-en esta vendran por defecto 2 usuarios cargados los cuales puedes usar para probar el chat en tiempo real, estos iniciaran sesion con su respectivo nombre de usuario que son, Almuno y Profesor, y para ambos la contraseña es 12345
+en esta vendran por defecto 2 usuarios cargados los cuales puedes usar para probar el chat en tiempo real, estos iniciaran sesion con su respectivo nombre de usuario y contraseña que son:
+
+moderador
+userName: Profesor
+password: 12345
+
+Estudiante
+userName: Alumno
+password: 12345
 
 # `.env`
 
